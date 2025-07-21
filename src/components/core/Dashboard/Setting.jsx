@@ -38,8 +38,10 @@ const Setting = () => {
     contactNumber: "",
     gender: "",
   });
+  const [ImageUrlprofilePicture,setImageUrlprofilePicture] = useState("");
   function fileHandler(e) {
     setImage(e.target.files[0]);
+    setImageUrlprofilePicture(URL.createObjectURL(e.target.files[0]));
   }
   async function imgaeUploadHandler() {
     if (!image) {
@@ -199,11 +201,17 @@ const Setting = () => {
           <div className="lg:w-[70%] mt-10 flex flex-col gap-4">
             {/* profile update section  */}
             <div className="flex  bg-richblack-800 gap-4  items-center p-6 rounded-md">
-              <img
+             <div className="relative">
+               <img
                 src={profile}
                 alt="userProfileImage"
                 className="aspect-square h-[78px] w-[78px] object-cover rounded-full"
               />
+              {
+                ImageUrlprofilePicture && <img src={ImageUrlprofilePicture} alt="selectedImage" 
+                  className="aspect-square h-[78px] w-[78px] object-cover rounded-full absolute top-0" />
+              }
+             </div>
               <div className="flex flex-col gap-2">
                 <p className="text-richblack-25">Change Profile Picture</p>
                 <div className="flex gap-2">
@@ -241,8 +249,8 @@ const Setting = () => {
                 className="flex flex-col gap-4 relative "
                 onSubmit={submitHandler}
               >
-                <div className="flex flex-row gap-4 ">
-                  <label className="flex flex-col w-[50%] ">
+                <div className="flex md:flex-row gap-4 flex-col">
+                  <label className="flex flex-col lg:w-[50%] ">
                     <p>First Name</p>
                     <input
                       type="text"
@@ -251,7 +259,7 @@ const Setting = () => {
                       className="bg-richblack-700 outline-none border-b-[1px] border-richblack-5 p-2 rounded-md "
                     />
                   </label>
-                  <label className="flex flex-col w-[50%]">
+                  <label className="flex flex-col lg:w-[50%]">
                     <p>Last Name</p>
                     <input
                       type="text"
@@ -261,8 +269,8 @@ const Setting = () => {
                     />
                   </label>
                 </div>
-                <div className="flex flex-row gap-4 ">
-                  <label className="flex flex-col gap-2 w-[50%]">
+                <div className="flex md:flex-row gap-4 flex-col ">
+                  <label className="flex flex-col gap-2 lg:w-[50%]">
                     <p>Date of Birth</p>
                     <input
                       type="date"
@@ -272,7 +280,7 @@ const Setting = () => {
                       className="bg-richblack-700 outline-none border-b-[1px] border-richblack-5 p-2 rounded-md "
                     />
                   </label>
-                  <label className="flex flex-col gap-2 w-[50%]">
+                  <label className="flex flex-col gap-2 lg:w-[50%]">
                     <p>Gender</p>
                     <select
                       onChange={changeHandler}
@@ -287,8 +295,8 @@ const Setting = () => {
                     </select>
                   </label>
                 </div>
-                <div className="flex flex-row gap-4 ">
-                  <label className="flex flex-col gap-2 w-[50%]">
+                <div className="flex md:flex-row gap-4 flex-col">
+                  <label className="flex flex-col gap-2 lg:w-[50%]">
                     <p>Contact Number</p>
                     <input
                       type="text"
@@ -299,7 +307,7 @@ const Setting = () => {
                       className="bg-richblack-700 outline-none border-b-[1px] border-richblack-5 p-2 rounded-md "
                     />
                   </label>
-                  <label className="flex flex-col gap-2 w-[50%]">
+                  <label className="flex flex-col gap-2 lg:w-[50%]">
                     <p>About</p>
                     <input
                       type="text"

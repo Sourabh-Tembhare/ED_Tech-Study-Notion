@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { removeToken } from '../../../redux/slices/authSliice';
 import { toast } from 'react-toastify';
 import ConfirmationModel from "../../common/ConfirmationModel";
+import { MdOutlineArrowDropDown } from "react-icons/md";
 
 const ProfileDropDown = () => {
   const [open, setOpen] = useState(false);
@@ -46,12 +47,13 @@ const ProfileDropDown = () => {
 
   return (
     <div className='relative cursor-pointer'>
-      <div onClick={() => setOpen(!open)} ref={imgRef}>
+      <div onClick={() => setOpen(!open)} ref={imgRef} className="flex flex-row items-center gap-1">
         <img
           src={image}
           alt="userlogo"
           className='w-[40px] h-[40px] rounded-full'
         />
+        <MdOutlineArrowDropDown size={25}/>
       </div>
       {open && (
         <div

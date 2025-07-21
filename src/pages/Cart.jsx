@@ -58,7 +58,7 @@ const Cart = () => {
         <div className="border-[1px] border-richblack-700 mt-4"></div>
         <div className="mt-6 ">
           {cartItems.length < 1 ? (
-            <div className="text-richblack-50 ml-72 mt-40">
+            <div className="text-richblack-50 lg:ml-72 mt-40">
               {" "}
               Your cart is currently empty.{" "}
               <span

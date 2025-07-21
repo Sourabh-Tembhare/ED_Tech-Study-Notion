@@ -11,7 +11,7 @@ const Profile = () => {
   const {additionalDetails} = useSelector((state) => state.profile);
 
   return (
-    <div className="text-richblack-5 lg:ml-52 ml-6">
+    <div className="text-richblack-5 lg:ml-52 ml-1">
       {/* part 1  */}
       <div className=" mt-4">
         <p className="text-3xl font-semibold">My Profile</p>

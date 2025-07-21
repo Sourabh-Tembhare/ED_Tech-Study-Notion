@@ -52,7 +52,7 @@ const EnrolledCourses = () => {
             loading ? <Spinner/> : (<div>
             
                     {
-                        enrolledCourse.length < 1 ?  <div className='mt-60 ml-96 text-richblack-300'>You haven’t enrolled in any courses yet.</div> :
+                        enrolledCourse.length < 1 ?  <div className='mt-60 lg:ml-96 ml-6 text-richblack-300'>You haven’t enrolled in any courses yet.</div> :
                     
          
                 
