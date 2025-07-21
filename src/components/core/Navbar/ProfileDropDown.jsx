@@ -5,6 +5,8 @@ import { removeToken } from '../../../redux/slices/authSliice';
 import { toast } from 'react-toastify';
 import ConfirmationModel from "../../common/ConfirmationModel";
 import { MdOutlineArrowDropDown } from "react-icons/md";
+import { VscDashboard } from "react-icons/vsc";
+import { IoIosLogOut } from "react-icons/io";
 
 const ProfileDropDown = () => {
   const [open, setOpen] = useState(false);
@@ -61,16 +63,18 @@ const ProfileDropDown = () => {
           ref={boxRef}
         >
           <Link
-            className='hover:bg-richblack-900 rounded-full px-4 py-2'
+            className='hover:bg-richblack-900 rounded-full px-4 py-2 flex items-center gap-2'
             onClick={dashboardHandler}
           >
-            Dashboard
+            <VscDashboard/>
+           <p> Dashboard</p>
           </Link>
           <button
-            className='hover:bg-richblack-900 rounded-full px-4 py-2'
+            className='hover:bg-richblack-900 rounded-full px-4 py-2 flex items-center gap-2'
             onClick={toggleModal}
           >
-            LogOut
+            <IoIosLogOut/>
+            <p>LogOut</p>
           </button>
         </div>
       )}
