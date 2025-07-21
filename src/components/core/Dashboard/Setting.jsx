@@ -49,8 +49,9 @@ const Setting = () => {
     formData.append("image", image);
     try {
       dispatch(setLoading(true));
+          const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
       const response = await axios.put(
-        "http://localhost:5000/api/v1/updateProfilePicture",
+        `${BASE_URL}/api/v1/updateProfilePicture`,
         formData,
         {
           headers: {
@@ -84,8 +85,9 @@ const Setting = () => {
     e.preventDefault();
     try {
       setProfileLoading(true);
+          const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
       const response = await axios.put(
-        "http://localhost:5000/api/v1/update-profile",
+        `${BASE_URL}/api/v1/update-profile`,
         formData,
         {
           headers: {
@@ -124,8 +126,9 @@ const Setting = () => {
 
     try {
       setPasswordLoading(true);
+          const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
       const response = await axios.put(
-        "http://localhost:5000/api/v1/change-password",
+        `${BASE_URL}/api/v1/change-password`,
         passwordChange,
         {
           headers: {
@@ -156,8 +159,9 @@ const Setting = () => {
     }
     try {
       setDeleteLoading(true);
+             const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
       const response = await axios.delete(
-        "http://localhost:5000/api/v1/delete-account",
+        `${BASE_URL}/api/v1/delete-account`,
         {
           headers: {
             Authorization: "Bearer " + token,

@@ -32,7 +32,8 @@ const ReviewModal = ({ setMoadal }) => {
     try {
         setLoading(true);
         var toastId = toast.loading("loading...")
-        const response = await axios.post("http://localhost:5000/api/v1/createRating",data,{
+         const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+        const response = await axios.post(`${BASE_URL}/api/v1/createRating`,data,{
             headers:{
                 Authorization:'Bearer '+token,
             }

@@ -26,6 +26,7 @@ const Home = () => {
     const [cardHeighlight,setcardHighilight] = useState("Learn HTML")
 
     const data = HomePageExplore.filter((dataHai) => dataHai.tag  === selectTag)
+    
     return (
         <div>
             {/* section 1 */}

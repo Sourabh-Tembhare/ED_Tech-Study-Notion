@@ -50,7 +50,8 @@ const CoursePublish = () => {
     try {
       setLoading(true);
       var toastId = toast.loading("Course published...");
-      const response = await axios.put("http://localhost:5000/api/v1/published-course",data,{
+         const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+      const response = await axios.put(`${BASE_URL}/api/v1/published-course`,data,{
         headers:{
           Authorization:'Bearer '+token
         }

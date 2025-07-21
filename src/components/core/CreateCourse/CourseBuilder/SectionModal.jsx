@@ -50,7 +50,8 @@ const SectionModal = ({setModal,view,sectionId,viewData,setViewData,setView,edit
        try {
         setLoading(true);
         var toastId = toast.loading("Creating lecture...");
-        const response = await  axios.post("http://localhost:5000/api/v1/create-subsection",data,
+            const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+        const response = await  axios.post(`${BASE_URL}/api/v1/create-subsection`,data,
           {
             headers:{
               Authorization:'Bearer '+token
@@ -114,7 +115,8 @@ const SectionModal = ({setModal,view,sectionId,viewData,setViewData,setView,edit
       try {
         setLoading(true);
         var tId = toast.loading("Updating Lecture...");
-        const response = await axios.put("http://localhost:5000/api/v1/update-subsection",data,{
+          const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+        const response = await axios.put(`${BASE_URL}/api/v1/update-subsection`,data,{
           headers:{
             Authorization:'Bearer '+token,
           }

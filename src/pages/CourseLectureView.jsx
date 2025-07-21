@@ -22,7 +22,8 @@ const CourseLectureView = () => {
     const  getCourseDetails = async()=>{
         try {
             setLoading(true);
-            const response = await axios.get("http://localhost:5000/api/v1/get-course-details/"+courseId);
+            const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+            const response = await axios.get(`${BASE_URL}/api/v1/get-course-details/`+courseId);
             dispatch(setViewCourseAllData(response.data.data));
             dispatch(setViewSectionData(response.data.data.courseContent));
             setLoading(false);
@@ -38,8 +39,9 @@ const CourseLectureView = () => {
   const getCourseProgress = async () => {
     try {
         setProgressLoading(true);
+             const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
       const response = await axios.get(
-        `http://localhost:5000/api/v1/fetchCourseProgres/${courseId}`,
+        `${BASE_URL}/api/v1/fetchCourseProgres/${courseId}`,
         {
           headers: {
             Authorization: 'Bearer ' + token,

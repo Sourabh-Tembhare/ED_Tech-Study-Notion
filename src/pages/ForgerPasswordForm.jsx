@@ -34,8 +34,9 @@ const ForgerPasswordForm = () => {
     fromData.token = token;
     try {
       dispatch(setLoading(true));
+        const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
       const respone = await axios.put(
-        "http://localhost:5000/api/v1/reset-password",
+        `${BASE_URL}/api/v1/reset-password`,
         fromData
       );
       toast.success(respone.data.message);

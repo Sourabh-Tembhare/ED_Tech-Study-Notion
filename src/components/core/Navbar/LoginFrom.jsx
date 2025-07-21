@@ -33,7 +33,8 @@ const LoginFrom = () => {
     e.preventDefault();
     try {
       dispatch(setLoading(true));
-      const response = await axios.post("http://localhost:5000/api/v1/login", fromData);   
+               const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+      const response = await axios.post(`${BASE_URL}/api/v1/login`, fromData);   
       dispatch(setUser( response.data.user.accountType));
       // localStorage.setItem("accountType", response.data.user.accountType);
       dispatch(setFirstName(response.data.user.firstName))

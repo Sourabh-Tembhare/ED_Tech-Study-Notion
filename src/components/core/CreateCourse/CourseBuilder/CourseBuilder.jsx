@@ -44,8 +44,9 @@ const CourseBuilder = () => {
     try {
       setLoading(true);
       var toastId = toast.loading("Creating Section...");
+           const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
       const response = await axios.post(
-        "http://localhost:5000/api/v1/create-section",
+        `${BASE_URL}/api/v1/create-section`,
         data,
         {
           headers: {
@@ -96,8 +97,9 @@ const CourseBuilder = () => {
     try {
       setLoading(true);
       var toasId = toast.loading("Updating SectonName...");
+             const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
       const response = await axios.put(
-        "http://localhost:5000/api/v1/update-section",
+        `${BASE_URL}/api/v1/update-section`,
         data,
         {
           headers: {
@@ -135,8 +137,9 @@ const CourseBuilder = () => {
     };
     try {
       var toasId = toast.loading("Deleting Section...");
+        const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
       const response = await axios.delete(
-        "http://localhost:5000/api/v1/delete-section/" + sectionId,
+         `${BASE_URL}/api/v1/delete-section/`+ sectionId,
         {
           headers: {
             Authorization: "Bearer " + token,
@@ -188,7 +191,8 @@ setModal(true);
     }
     try {
       var subId =  toast.loading("deleting lecture...");
-      const response = await axios.delete("http://localhost:5000/api/v1/delete-subsection/"+subSecId,{
+       const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+      const response = await axios.delete(`${BASE_URL}/api/v1/delete-subsection/` +subSecId,{
         headers:{
           Authorization:'Bearer '+token,
           

@@ -13,7 +13,8 @@ const EnrolledCourses = () => {
     const getAllCourse = async()=>{
         try {
             setLoading(true);
-            const response = await axios.get("http://localhost:5000/api/v1/studentEnrolledCourses",{
+                  const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+            const response = await axios.get(`${BASE_URL}/api/v1/studentEnrolledCourses`,{
                 headers:{
                     Authorization:"Bearer "+token
                 }

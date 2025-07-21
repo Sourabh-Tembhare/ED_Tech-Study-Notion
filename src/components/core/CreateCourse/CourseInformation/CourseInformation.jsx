@@ -31,8 +31,9 @@ const CourseInformation = () => {
 
   async function getAllCategories() {
     try {
+      const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
       const response = await axios.get(
-        "http://localhost:5000/api/v1/get-all-categories"
+        `${BASE_URL}/api/v1/get-all-categories`
       );
       setCategory(response.data.data);
     } catch (error) {
@@ -92,8 +93,9 @@ const CourseInformation = () => {
     try {
       setLoading(true);
       var toastId = toast.loading("Creating course...");
+        const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
       const response = await axios.post(
-        "http://localhost:5000/api/v1/create-course",
+        `${BASE_URL}/api/v1/create-course`,
         formData,
         {
           headers: {
@@ -164,9 +166,9 @@ if (isDataUnchanged) {
       setLoading(true);
       var toasId = toast.loading("Updating course...");
       console.log("Lohhing formdata",formData);
-      
+          const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
       const response = await axios.put(
-        "http://localhost:5000/api/v1/update-course",
+        `${BASE_URL}/api/v1/update-course`,
         formData,
         {
           headers: {

@@ -16,9 +16,10 @@ const EnrolledCard = ({ course }) => {
   const getCourseProgress = async () => {
     try {
       setLoading(true);
-
+      
+      const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
       const response = await axios.get(
-        `http://localhost:5000/api/v1/fetchCourseProgres/${course._id}`,
+        `${BASE_URL}/api/v1/fetchCourseProgres/${course._id}`,
         {
           headers: {
             Authorization: 'Bearer ' + token,

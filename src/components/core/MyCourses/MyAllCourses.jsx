@@ -28,7 +28,8 @@ const MyAllCourses = ({ course, setAllCourses, setLoading }) => {
 
     try {
       setLoading(true);
-      const response = await axios.delete(`http://localhost:5000/api/v1/delete-course/${courseId}`, {
+          const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+      const response = await axios.delete(`${BASE_URL}/api/v1/delete-course/${courseId}`, {
         headers: {
           Authorization: 'Bearer ' + token,
         },

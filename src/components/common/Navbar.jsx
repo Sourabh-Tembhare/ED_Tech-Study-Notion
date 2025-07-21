@@ -28,7 +28,8 @@ const Navbar = () => {
   useEffect(() => {
     (async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/v1/get-all-categories');
+        const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+        const res = await axios.get(`${BASE_URL}/api/v1/get-all-categories`);
         setCategory(res.data.data);
       } catch (err) {
         toast.error(err.response?.data?.message || 'Failed to load categories');

@@ -27,7 +27,8 @@ navigate("/signup")
        data.otp = otp;
        try {
         dispatch(setLoading(true));
-        const response = await axios.post("http://localhost:5000/api/v1/signup",data);
+              const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+        const response = await axios.post(`${BASE_URL}/api/v1/signup`,data);
         toast.success(response.data.message);
         navigate("/login");
         dispatch(setLoading(false));       
@@ -51,7 +52,8 @@ navigate("/signup")
     }
   try {
     dispatch(setLoading(true));
-      const response = await axios.post("http://localhost:5000/api/v1/send/otp",email);
+            const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+      const response = await axios.post(`${BASE_URL}/api/v1/send/otp`,email);
       toast.success(response.data.message);
       dispatch(setLoading(false));
   } catch (error) {

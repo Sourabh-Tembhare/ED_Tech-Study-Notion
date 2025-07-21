@@ -70,8 +70,9 @@ const CourseDetails = () => {
     }
     const toastId = toast.loading("Processing payment...");
     try {
+         const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
       const { data: orderData } = await axios.post(
-        "http://localhost:5000/api/v1/order",
+        `${BASE_URL}/api/v1/order`,
         { amount },
         {
           headers: {
@@ -99,8 +100,9 @@ const CourseDetails = () => {
       handler: async function (response) {
         const toastId = toast.loading("Verifying payment...");
         try {
+               const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
           const verifyRes = await axios.post(
-            "http://localhost:5000/api/v1/verify",
+            `${BASE_URL}/api/v1/verify`,
             {
               razorpay_order_id: response.razorpay_order_id,
               razorpay_payment_id: response.razorpay_payment_id,
