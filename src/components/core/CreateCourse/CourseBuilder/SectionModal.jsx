@@ -177,7 +177,7 @@ const SectionModal = ({setModal,view,sectionId,viewData,setViewData,setView,edit
         </label>
                 <label className="flex flex-col gap-1">
           <p>
-            Course Short Description <sup className="text-pink-400">*</sup>
+            Lecture Short Description <sup className="text-pink-400">*</sup>
           </p>
           <textarea
           value={formData.description}

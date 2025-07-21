@@ -49,7 +49,7 @@ const EnrolledCourses = () => {
 
         {
             
-            loading ? <Spinner/> : (<div>
+            loading ? <div className='flex justify-center mt-40 items-center'><Spinner/></div> : (<div>
             
                     {
                         enrolledCourse.length < 1 ?  <div className='mt-60 lg:ml-96 ml-6 text-richblack-300'>You haven’t enrolled in any courses yet.</div> :
