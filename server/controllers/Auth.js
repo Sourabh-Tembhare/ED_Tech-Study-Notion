@@ -416,6 +416,15 @@ exports.deleteProfile = async(req,res)=>{
       })
     }
 
+   
+    //  instructor and admin not  deleted their  account for validation
+    if(req.user.accountType !== "Student"){
+          return res.status(400).json({
+        success:false,
+        message:"You  can't delete your account",
+      })
+    }
+
     // fetch user details
     const userDetails = await User.findById(userId);
 
