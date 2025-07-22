@@ -97,7 +97,7 @@ const InstructorDashboard = () => {
                             
                            </div>
                         </div>
-                         </div>) :  (<div className='flex flex-col gap-2 ml-96 mt-40'>
+                         </div>) :  (<div className='flex flex-col gap-2 lg:ml-96 mt-40 ml-10'>
                            <p className='ml-3'> Courses not found</p>
                              <button onClick={()=>{navigate("/dashboard/create-course")}}
                                                    className="bg-yellow-50 flex items-center justify-center gap-2 w-fit  text-richblue-900 px-6 py-1 rounded-md hover:bg-yellow-100 shadow-[2px_2px_white]"

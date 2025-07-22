@@ -524,7 +524,7 @@ exports.updateProfilePicture = async(req,res)=>{
     // fetch userId
     const userId = req.user.userId;
    
-    console.log("Log 1 ");
+
     
     // upload image in cloudinary 
     const uploadImage = await cloudinaryUploader(profilePicture,"sourabh");

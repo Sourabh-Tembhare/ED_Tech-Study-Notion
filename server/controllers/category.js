@@ -20,9 +20,10 @@ exports.createCategory = async (req, res) => {
 			message: "Categorys Created Successfully",
 		});
 	} catch (error) {
-		return res.status(500).json({
-			success: true,
-			message: error.message,
+        console.log(error);
+        return res.status(500).json({
+			success: false,
+			message: "Internal Server Error",
 		});
 	}
 };

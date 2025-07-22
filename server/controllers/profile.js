@@ -92,8 +92,8 @@ exports.instructorDashboard = async(req,res)=>{
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            success:fasle,
-            message:"Internal Server error"
+            success:false,
+            message:"Internal server error"
         })
         
         
