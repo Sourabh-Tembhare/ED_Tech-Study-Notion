@@ -69,7 +69,7 @@ try {
   return (
 <div>
  {
-  loading ? <div className='flex items-center justify-center mt-36'><Spinner/></div> :   <from>
+  loading ? <div className='flex items-center justify-center mt-36'><Spinner/></div> :   <form onSubmit={submitHandler}>
      <div className='mt-2 flex flex-col gap-4 '>
       <div className='bg-richblack-700 w-fit p-1 flex gap-2 rounded-full'>
         <button onClick={()=>{
@@ -173,12 +173,12 @@ try {
         </div>
       </div>
       <div className='relative'>
-        <button onClick={submitHandler} className='text-center font-semibold text-richblack-900 bg-yellow-50 rounded-md hover:bg-yellow-100 w-full py-2 transition-all duration-300'>
+        <button type='submit' className='text-center font-semibold text-richblack-900 bg-yellow-50 rounded-md hover:bg-yellow-100 w-full py-2 transition-all duration-300'>
           Create Account
         </button>
       </div>
     </div>
- </from>
+ </form>
  }
 </div>
   )
