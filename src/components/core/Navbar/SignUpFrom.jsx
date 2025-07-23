@@ -72,12 +72,14 @@ try {
   loading ? <div className='flex items-center justify-center mt-36'><Spinner/></div> :   <form onSubmit={submitHandler}>
      <div className='mt-2 flex flex-col gap-4 '>
       <div className='bg-richblack-700 w-fit p-1 flex gap-2 rounded-full'>
-        <button onClick={()=>{
+        <button type="button" onClick={()=>{
           setButton("Student");
         }} 
+        
         className={`${button  === "Student" ? "bg-richblack-900"  : ""} rounded-full px-3 py-1 font-semibold transition-all duration-300`}
         >Student</button>
         <button 
+        type="button"
         onClick={()=>{
           setButton("Instructor")
         }}
