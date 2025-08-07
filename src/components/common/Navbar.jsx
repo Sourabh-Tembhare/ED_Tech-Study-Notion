@@ -21,6 +21,7 @@ const Navbar = () => {
   const { totalItems } = useSelector((state) => state.cart);
 
   const [category, setCategory] = useState([]);
+  const [loadingCategories, setLoadingCategories] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
@@ -28,11 +29,14 @@ const Navbar = () => {
   useEffect(() => {
     (async () => {
       try {
+        setLoadingCategories(true); 
         const BASE_URL = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
         const res = await axios.get(`${BASE_URL}/api/v1/get-all-categories`);
         setCategory(res.data.data);
       } catch (err) {
         toast.error(err.response?.data?.message || 'Failed to load categories');
+      } finally {
+        setLoadingCategories(false); 
       }
     })();
   }, []);
@@ -47,15 +51,21 @@ const Navbar = () => {
               <RiArrowDropDownLine size={22} />
             </div>
             <div className="absolute top-8 left-0 w-56 bg-white text-black rounded shadow-md p-3 hidden group-hover:flex flex-col gap-2 z-40">
-              {category.map((cat) => (
-                <Link
-                  to={`/catalog/${cat._id}`}
-                  key={cat._id}
-                  className="hover:bg-richblack-100 rounded px-2 py-1"
-                >
-                  {cat.name}
-                </Link>
-              ))}
+              {loadingCategories ? (
+                <p className="text-center text-sm text-richblack-600">Loading...</p>
+              ) : category.length > 0 ? (
+                category.map((cat) => (
+                  <Link
+                    to={`/catalog/${cat._id}`}
+                    key={cat._id}
+                    className="hover:bg-richblack-100 rounded px-2 py-1"
+                  >
+                    {cat.name}
+                  </Link>
+                ))
+              ) : (
+                <p className="text-center text-sm text-richblack-600">No categories found</p>
+              )}
             </div>
           </div>
         ) : (
