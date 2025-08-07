@@ -430,7 +430,7 @@ const Home = () => {
                   <div className='flex flex-col mt-36 text-white gap-12' >
                     {/* part 1  */}
                     <div className='text-center'>
-                        <p className='text-4xl font-semibold'>Reviews from other learns</p>
+                        <p className='text-4xl font-semibold'>Reviews from other learners</p>
                     </div>
 
                     {/* reviews slider  */}
